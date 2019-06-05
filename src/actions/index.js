@@ -7,8 +7,8 @@ export const fetchItems = () => async dispatch => {
 };
 
 export const fetchItem = (id) => async dispatch => {
-    const response = await backend.get(`/single/${id}`);
-    dispatch({type: FETCH_ITEM, payload: response.data});
+    const response = await backend.get(`/${id}`);
+    dispatch({type: FETCH_ITEM, payload: response.data[0]});
 };
 
 export const checkOut = () => {

@@ -14,11 +14,11 @@ export class ItemList extends React.Component {
             return (
                 <div className="card" key={item.id} style={{width: "200px", height: "150px"}}>
                     <div className="card-body text-center" style={{ margin:"30px auto"}}>
-                        <Link to={`/items/${item.id}`} className="card-title">
+                        <Link id="name" to={`/items/${item.id}`} className="card-title">
                             {item.name}
                         </Link>
-                        <div className="card-text">{item.shortDescription}</div>
-                        <div className="card-text">{item.price}$</div>
+                        <div id="description" className="card-text">{item.shortDescription}</div>
+                        <div id="price" className="card-text">{item.price}$</div>
                     </div>
                 </div>
             );
@@ -27,8 +27,8 @@ export class ItemList extends React.Component {
 
     render() {
         return (
-            <div className="container" style={{display: "grid", "grid-gap": "0 5px",
-                "grid-auto-rows": "10px", margin:"2% auto"}}>
+            <div className="container" style={{display: "grid", "gridGap": "0 5px",
+                "gridAutoRows": "10px", margin:"2% auto"}}>
                 {this.renderList()}
             </div>
         );

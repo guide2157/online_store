@@ -1,20 +1,17 @@
 import React from "react";
-import {create} from "react-test-renderer";
-import axios from "axios";
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import {ItemList} from "../../components/item/item_list";
-// import '../test-config';
-
-import configureMockStore from 'redux-mock-store';
-const mockStore = configureMockStore();
+import '../../setupTest';
 
 
 describe("test item list", ()=> {
-    let wrapper, store;
+    let wrapper;
+    const mockFetch = jest.fn();
 
-    beforeEach(() => {
-        const initialState = {
-            items: [{
+    beforeEach(()=> {
+        const initialState = [
+            {
                 id: 1,
                 name: "novel",
                 price: 15,
@@ -26,27 +23,40 @@ describe("test item list", ()=> {
                 price: 2,
                 shortDescription: "fresh",
                 description: "best from the local farm"
-            }]
-        };
-        store = mockStore(initialState);
-        wrapper = shallow(
-            <ItemList store={store} />
+            }];
+        wrapper = mount(
+            <MemoryRouter><ItemList items={initialState} fetchItems={mockFetch} /></MemoryRouter>
         );
     });
 
-    it("should display products detail correctly in list form", async ()=> {
-        const instance= wrapper.getInstance();
-        await instance.componentDidMount();
-        const root = instance.root();
-        const listOfHeader = root.findAll(elm => elm.class === "h5");
-        expect(listOfHeader[0].props.children).toBe("novel");
-        expect(listOfHeader[1].props.children).toBe("egg");
-        const listOfDescription = root.findAll(elm => elm.class === "p");
-        expect(listOfDescription[0].props.children).toBe("best book of the year");
-        expect(listOfDescription[1].props.children).toBe("fresh");
-        const listOfLink = root.findAll(elm => elm.class === "a");
-        expect(listOfLink[0].props.children).toBe("More detail");
-        expect(listOfLink[1].props.children).toBe("More detail");
+    it("should display products detail correctly in list form", ()=> {
+
+        const names = wrapper.find("#name");
+        expect(names.length).toBe(4);
+        expect(names.get(0).props.children).toBe("novel");
+        expect(names.get(2).props.children).toBe("egg");
+
+        const links = wrapper.find("Link");
+        expect(links.length).toBe(2);
+        expect(links.get(0).props.to).toBe("/items/1");
+        expect(names.get(1).props.to).toBe("/items/2");
+
+        const descriptions = wrapper.find("#description");
+        expect(descriptions.length).toBe(2);
+        expect(descriptions.get(0).props.children).toBe("best book of the year");
+        expect(descriptions.get(1).props.children).toBe("fresh");
+
+        const prices = wrapper.find("#price");
+        expect(prices.length).toBe(2);
+        expect(prices.get(0).props.children.join('')).toBe("15$");
+        expect(prices.get(1).props.children.join('')).toBe("2$");
+
+        wrapper.unmount();
     });
+
+    it("should call the fetchItem function when the component is mount", () => {
+        expect(mockFetch.mock.calls.length).toBe(2);
+        wrapper.unmount();
+    })
 
 });
