@@ -14,7 +14,6 @@ const App = () => {
     return (
         <div>
             <Router history={history}>
-                <Header/>
                 <div>
                     <Route path="/" exact component={Home}/>
                     <Route path="/about" exact component={About}/>
