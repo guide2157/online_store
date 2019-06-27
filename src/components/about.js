@@ -4,7 +4,7 @@ import Header from "./header.js";
 export default class About extends React.Component {
     render() {
         return (
-            <div className="about-us">
+            <section className="section-about-us">
                 <Header/>
                 <div className="row">
                     <h2>About us</h2>
@@ -12,7 +12,7 @@ export default class About extends React.Component {
                         First time, 10 years ago until now… We hope that we will be a promoter in marigold seed to be like gold for the richness of the agriculturist. </p>
 
                 </div>
-            </div>
+            </section>
 
         );
     }

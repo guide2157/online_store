@@ -1,7 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {fetchItems} from "../../actions";
+import Header from "../header";
 
 export class ItemList extends React.Component {
 
@@ -12,24 +13,24 @@ export class ItemList extends React.Component {
     renderList() {
         return this.props.items.map(item => {
             return (
-                <div className="card" key={item.id} style={{width: "200px", height: "150px"}}>
-                    <div className="card-body text-center" style={{ margin:"30px auto"}}>
-                        <Link id="name" to={`/items/${item.id}`} className="card-title">
-                            {item.name}
-                        </Link>
-                        <div id="description" className="card-text">{item.shortDescription}</div>
-                        <div id="price" className="card-text">{item.price}$</div>
+                <Link id="name" to={`/items/${item.id}`} key={item.id}>
+                    <div className="col span-1-of-3 card">
+                        <h3>{item.name}</h3>
+                        <p id="description">{item.shortDescription}</p>
+                        <h4 id="price">{item.price}$</h4>
                     </div>
-                </div>
+                </Link>
             );
         });
     }
 
     render() {
         return (
-            <div className="container" style={{display: "grid", "gridGap": "0 5px",
-                "gridAutoRows": "10px", margin:"2% auto"}}>
-                {this.renderList()}
+            <div className="item_list">
+                <Header/>
+                <div className="row item_list_cards">
+                    {this.renderList()}
+                </div>
             </div>
         );
     }
@@ -41,5 +42,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {fetchItems}) (ItemList);
+export default connect(mapStateToProps, {fetchItems})(ItemList);
 

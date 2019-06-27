@@ -1,7 +1,7 @@
 import React from "react";
 import {Router, Route} from "react-router-dom";
 
-import Header from "./header";
+import Footer from "./footer";
 import ItemLists from "./item/item_list";
 import ItemDetail from "./item/item_detail";
 import Home from "./home";
@@ -20,6 +20,7 @@ const App = () => {
                     <Route path="/items" exact component={ItemLists}/>
                     <Route path="/items/:id" exact component={ItemDetail}/>
                 </div>
+                <Footer/>
             </Router>
         </div>
     );

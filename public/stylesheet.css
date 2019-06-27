@@ -31,9 +31,6 @@ html {
 /* REUSABLE COMPONENTS */
 /* ----------------------------------------------------*/
 
-section {
-    padding: 60px 0;
-}
 
 .row {
     max-width: 1140px;
@@ -44,10 +41,14 @@ section {
     padding: 1%;
 }
 
-p{
+p {
     line-height: 150%;
+    padding-bottom: 20px;
 }
 
+h2, h3, h4{
+    padding-bottom: 30px;
+}
 
 
 /* ----------------------------------------------------*/
@@ -56,7 +57,6 @@ p{
 
 .nav-bar {
     padding-top: 70px;
-
 }
 
 .nav-links {
@@ -106,13 +106,17 @@ p{
 /* ABOUT_US */
 /* ----------------------------------------------------*/
 
-.about-us .row{
+.section-about-us{
+    height: 100vh;
+    padding-top: 0;
+}
+.section-about-us .row{
     width: 70%;
     margin-top: -60vh;
     color: whitesmoke;
 }
 
-.about-us .nav-bar {
+.section-about-us .nav-bar {
     padding-top: 70px;
     background-image: linear-gradient(rgb(0,0,0,0.7), rgb(0,0,0,0.7)), url("./images/plan-tree-in-neutral-background-picture-id639109460.jpg");
     height: 100vh;
@@ -121,11 +125,11 @@ p{
     background-attachment: fixed;
 }
 
-.about-us h2{
+.section-about-us .item_detail h2{
     text-align: center;
 }
 
-.about-us h2:after{
+.section-about-us .item_detail h2:after{
     display: block;
     height: 2px;
     background-color: #e67e22;
@@ -153,6 +157,7 @@ p{
 .header{
     margin-top: -50vh;
     margin-left: 80px;
+    padding-bottom: 20vh;
 }
 
 .header h2{
@@ -163,3 +168,191 @@ p{
     margin-top: 10px;
 }
 
+/* ----------------------------------------------------*/
+/* ITEM_DETAIL */
+/* ----------------------------------------------------*/
+
+
+.item_detail .nav-bar img{
+    margin-top: -40px;
+}
+
+.item_detail a{
+    color: #888888;
+}
+
+.detail{
+    margin-top: 90px;
+}
+
+.detail .row{
+    padding: 3% 3%;
+    background-color: #888888;
+    border-radius: 10px;
+}
+
+.detail {
+    color: whitesmoke;
+}
+
+.buttons{
+    float: right;
+    margin-right: 50px;
+}
+
+
+.btn{
+    margin-left: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-color: #e67e22;
+    border-radius: 100px;
+    color: #fff;
+}
+
+.btn-add-cart{
+    background-color: #e67e22;
+    transition: backgroud-color 0.2s;
+}
+
+.btn-add-cart:hover,
+.btn-add-cart:active {
+    background-color: #cf6d17;
+}
+
+.btn-back:link,
+.btn-back:visited{
+    color: #fff;
+    border: 1px solid #e67e22;
+    transition: backgroud-color 0.2s, border 0.2s;
+}
+
+.btn-back:active,
+.btn-back:hover {
+    background-color: #cf6d17;
+}
+
+/* ----------------------------------------------------*/
+/* ITEM_LIST */
+/* ----------------------------------------------------*/
+
+.item_list .nav-bar img{
+    margin-top: -40px;
+}
+
+.item_list_cards {
+    margin-top: 90px;
+    width: 70%;
+}
+
+.item_list a{
+    color: #888888;
+}
+
+.card {
+    padding: 5%;
+    border-radius: 5px;
+    font-weight: 300;
+    border: 2px solid #888888;
+    color: #888888;
+    background-color: #ffffff;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+
+.card h3{
+    text-decoration: none;
+    color: #e67e22;
+    transition: color 0.2s;
+}
+
+
+.card:hover,
+.card:active {
+    color: whitesmoke;
+    border: 2px solid #e67e22;
+    background-color: #e67e22;
+}
+
+.card:hover h3,
+.card:active h3{
+    color: whitesmoke;
+}
+
+
+/* ----------------------------------------------------*/
+/* FOOTER */
+/* ----------------------------------------------------*/
+
+
+.section-footer {
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+.social-icons li,
+.footer-nav li{
+    display: inline-block;
+    margin-right: 20px;
+}
+.social-icons li:last-child{
+    margin-right: 60px;
+}
+
+.footer-nav li:first-child{
+    margin-left: 60px;
+}
+
+.footer-nav{
+    list-style: none;
+    float: left;
+}
+
+.social-icons{
+    list-style: none;
+    float: right;
+}
+
+.section-footer p {
+    text-align: center;
+    font-size: 80%;
+}
+
+.social-icons a,
+.footer-nav a{
+    text-decoration: none;
+    color: #888888;
+}
+
+.social-icons a{
+    font-size: 110%;
+}
+
+.footer-nav a:link,
+.footer-nav a:visited{
+    color: #888888;
+    font-size: 90%;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover,
+.footer-nav a:active{
+    color: #e67e22;
+    transition: color 0.2s;
+}
+
+
+.ion-social-facebook:hover,
+.ion-social-facebook:active {
+    color: #3B5998;
+}
+
+.ion-social-twitter:hover,
+.ion-social-twitter:active {
+    color: #1da1f2;
+}
+.ion-social-instagram:hover,
+.ion-social-instagram:active {
+    color: #DD2A7B;
+}

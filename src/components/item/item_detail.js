@@ -1,10 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import history from "../../history";
 import {fetchItem, addToCart} from "../../actions";
+import Header from "../header";
 
-export class ItemDetail extends React.Component{
+export class ItemDetail extends React.Component {
 
 
     componentDidMount() {
@@ -25,14 +25,22 @@ export class ItemDetail extends React.Component{
             );
         }
         return (
-            <div className="jumbotron container" style={{margin: '8% auto'}}>
-                <h1 id="name" className="display-4">{this.props.item.name}</h1>
-                <h5 id="price" className="lead">{this.props.item.price}$</h5>
-                <p id="description" className="my-4">{this.props.item.description}</p>
-                <div style={{display:"flex", 'justifyContent': 'center', width:'330px', float:'right'}}>
-                    <button id="AddToCart" className="btn btn-warning" type="button" style={{marginRight: '20px'}} onClick={this.addToCartOnClick}>Add to cart</button>
-                    <button id="BackToProducts" className="btn btn-info" type="button" onClick={() => history.push('/items')}>Back to products list</button>
-                </div>
+            <div className="item_detail">
+                <Header/>
+                <section className="detail">
+                    <div className="row">
+                        <h2 id="name">{this.props.item.name}</h2>
+                        <h4 id="price">{this.props.item.price}$</h4>
+                        <p id="description">{this.props.item.description}</p>
+                        <div className="buttons">
+                            <button id="AddToCart" className="btn btn-add-cart"
+                                    onClick={this.addToCartOnClick}>Add to cart
+                            </button>
+                            <Link id="BackToProducts" className="btn btn-back" to={'/items'}>Back to products
+                                list</Link>
+                        </div>
+                    </div>
+                </section>
             </div>
         );
     }
@@ -46,4 +54,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-export default connect (mapStateToProps, {fetchItem, addToCart}) (ItemDetail) ;
+export default connect(mapStateToProps, {fetchItem, addToCart})(ItemDetail);
