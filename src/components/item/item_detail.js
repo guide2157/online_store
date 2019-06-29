@@ -13,8 +13,7 @@ export class ItemDetail extends React.Component {
     }
 
     addToCartOnClick = () => {
-        const id = this.props.match.params.id;
-        this.props.addToCart(id);
+        this.props.addToCart(this.props.item);
     };
 
 
@@ -26,7 +25,7 @@ export class ItemDetail extends React.Component {
         }
         return (
             <div className="item_detail">
-                <Header/>
+                <Header url={process.env.PUBLIC_URL + "/images/logoBlack.png"}/>
                 <section className="detail">
                     <div className="row">
                         <h2 id="name">{this.props.item.name}</h2>

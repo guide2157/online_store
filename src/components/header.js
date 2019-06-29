@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 export default class Header extends React.Component {
     render() {
         return (
-            <nav className="nav-bar">
-                <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="logo"/>
+            <nav className="nav-bar clearfix">
+                <img src={this.props.url} alt="logo"/>
                 <div className="nav-links">
                     <ul>
                         <li className="nav-link">
@@ -18,7 +18,7 @@ export default class Header extends React.Component {
                             <Link to={`/about`}>About us</Link>
                         </li>
                         <li className="nav-link">
-                            <Link to={`/`}>Cart</Link>
+                            <Link to={`/cart`}>Cart</Link>
                         </li>
                     </ul>
                 </div>

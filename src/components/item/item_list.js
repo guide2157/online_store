@@ -27,7 +27,7 @@ export class ItemList extends React.Component {
     render() {
         return (
             <div className="item_list">
-                <Header/>
+                <Header url={process.env.PUBLIC_URL + "/images/logoBlack.png"}/>
                 <div className="row item_list_cards">
                     {this.renderList()}
                 </div>

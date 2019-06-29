@@ -16,6 +16,8 @@ html {
     font-size: 22px;
     font-weight: 300;
     text-rendering: optimizeLegibility;
+    position: relative;
+    min-height: 100%;
 }
 
 .clearfix {zoom:1;}
@@ -26,6 +28,11 @@ html {
     height: 0;
     visibility: hidden;
 }
+
+.wrapper {
+    margin: 0 0 100px;
+}
+
 
 /* ----------------------------------------------------*/
 /* REUSABLE COMPONENTS */
@@ -125,11 +132,11 @@ h2, h3, h4{
     background-attachment: fixed;
 }
 
-.section-about-us .item_detail h2{
+.section-about-us  h2{
     text-align: center;
 }
 
-.section-about-us .item_detail h2:after{
+.section-about-us h2:after{
     display: block;
     height: 2px;
     background-color: #e67e22;
@@ -157,7 +164,7 @@ h2, h3, h4{
 .header{
     margin-top: -50vh;
     margin-left: 80px;
-    padding-bottom: 20vh;
+    margin-bottom: 40vh;
 }
 
 .header h2{
@@ -182,7 +189,7 @@ h2, h3, h4{
 }
 
 .detail{
-    margin-top: 90px;
+    margin-top: 30px;
 }
 
 .detail .row{
@@ -210,6 +217,7 @@ h2, h3, h4{
     border-color: #e67e22;
     border-radius: 100px;
     color: #fff;
+    cursor: pointer;
 }
 
 .btn-add-cart{
@@ -243,7 +251,7 @@ h2, h3, h4{
 }
 
 .item_list_cards {
-    margin-top: 90px;
+    margin-top: 30px;
     width: 70%;
 }
 
@@ -288,8 +296,12 @@ h2, h3, h4{
 
 
 .section-footer {
-    padding-top: 20px;
-    padding-bottom: 0;
+    height: 100px;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 .social-icons li,
 .footer-nav li{
@@ -355,4 +367,21 @@ h2, h3, h4{
 .ion-social-instagram:hover,
 .ion-social-instagram:active {
     color: #DD2A7B;
+}
+
+
+/* ----------------------------------------------------*/
+/* CART */
+/* ----------------------------------------------------*/
+
+.right {
+    float:right;
+}
+
+.section-cart a{
+    color: #888888;
+}
+
+.section-cart .nav-bar img{
+    margin-top: -40px;
 }
