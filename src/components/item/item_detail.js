@@ -3,9 +3,17 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {fetchItem, addToCart} from "../../actions";
 import Header from "../header";
+import Modal from "../modal";
+
 
 export class ItemDetail extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModal: "hidden"
+        }
+    }
 
     componentDidMount() {
         const id = this.props.match.params.id;
@@ -14,7 +22,9 @@ export class ItemDetail extends React.Component {
 
     addToCartOnClick = () => {
         this.props.addToCart(this.props.item);
+        this.setState({showModal: "visible"})
     };
+
 
 
     render() {
@@ -26,6 +36,11 @@ export class ItemDetail extends React.Component {
         return (
             <div className="item_detail">
                 <Header url={process.env.PUBLIC_URL + "/images/logoBlack.png"}/>
+                <Modal
+                    header="Item added to cart!"
+                    showModal={this.state.showModal}
+                    onDismiss={()=> this.setState({showModal:"hidden"})}
+                />
                 <section className="detail">
                     <div className="row">
                         <h2 id="name">{this.props.item.name}</h2>
